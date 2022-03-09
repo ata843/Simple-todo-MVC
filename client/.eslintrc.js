@@ -2,9 +2,21 @@
 const { resolve } = require('path');
 
 module.exports = {
+  plugins: ['import'],
   root: true,
   env: {
     node: true,
+  },
+  settings: {
+    'import/extensions': ['.js', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.ts', '.tsx']
+      }
+    }
   },
   extends: [
     'eslint:recommended',
@@ -15,7 +27,6 @@ module.exports = {
 
     '@vue/typescript',
     'plugin:vue/essential',
-
     'airbnb-base',
   ],
   parserOptions: {
@@ -29,6 +40,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'import/extensions': 'off',
     'import/order': ['error', {
       alphabetize: {
         caseInsensitive: true,
