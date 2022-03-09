@@ -36,7 +36,7 @@ export default defineComponent({
       pageCount: 0,
       prevPage: null,
     });
-    const pageSize = 5;
+    const pageSize = 20;
 
     const displayError = (errorMessage: string) => {
       error.value = errorMessage;
